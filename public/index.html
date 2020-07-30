@@ -4,7 +4,7 @@
 
 <head>
 
-	<title>Website</title>
+	<title>King's Gym</title>
 
 	<meta charset="utf-8">
 
@@ -15,12 +15,6 @@
 	<link rel="stylesheet" href="style.css">
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -74,7 +68,7 @@
 
 				<li class="nav-item">
 
-					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signup">SIGNUP</button>
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signin">SIGNIN</button>
 
 				</li>   
 
@@ -557,9 +551,6 @@
 			<div class="modal-content">
 
 
-
-				<!-- Modal Header -->
-
 				<div class="modal-header">
 
 					<h4 class="modal-title">SIGN UP</h4>
@@ -569,18 +560,23 @@
 				</div>
 
 
-
-				<!-- Modal body -->
-
 				<div class="modal-body">
 
-					<form action="/action_page.php">
+					<form action="">
 
 						<div class="form-group">
 
-							<label for="email">Name:</label>
+							<label for="email">First Name:</label>
 
-							<input type="text" class="form-control" placeholder="Name" id="email">
+							<input type="text" class="form-control" placeholder="First Name" id="firstName">
+
+						</div>
+
+						<div class="form-group">
+
+							<label for="email">Last Name:</label>
+
+							<input type="text" class="form-control" placeholder="Last Name" id="lastName">
 
 						</div>
 
@@ -591,6 +587,15 @@
 							<input type="email" class="form-control" placeholder="Email" id="email">
 
 						</div>
+
+
+						<div class="form-group">
+
+							<label for="email">Phone Number</label>
+
+							<input type="text" class="form-control" placeholder="Enter Phone No." id="phone">
+
+						</div>	
 
 						<div class="form-group">
 
@@ -607,32 +612,109 @@
 							<input type="password" class="form-control" placeholder="Confirm Password" id="pwd2">
 
 						</div>
-
-						<div class="form-group">
-
-							<label for="email">Phone Number</label>
-
-							<input type="text" class="form-control" placeholder="Enter Phone No." id="phone">
-
-						</div>
-
-						<button type="submit" data-dismiss="modal" class="btn btn-primary">Submit</button>
+						<h6 class="errorField">Please fill in required fields</h6>
+						<h6 class="passwordErrorField">Please match password with confirm password</h6>
+						<button type="button" class="btn btn-primary" id="submitUser">Register</button>
+						<h6>Already have account? Please <a data-toggle="modal" data-target="#signin" data-dismiss="modal" href="#"> login here </a></h6>
 
 					</form>
 
 				</div>
 
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="modal fade" id="signin">
+
+		<div class="modal-dialog">
+
+			<div class="modal-content">
 
 
-				<!-- Modal footer -->
+				<div class="modal-header">
 
-				<div class="modal-footer">
+					<h4 class="modal-title">SIGN IN</h4>
 
-					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
 
 				</div>
 
 
+				<div class="modal-body">
+
+					<form>
+
+						<div class="form-group">
+
+							<label for="email">Email address:</label>
+
+							<input type="email" class="form-control" placeholder="Email" id="email">
+
+						</div>
+
+
+						<div class="form-group">
+
+							<label for="pwd">Password:</label>
+
+							<input type="password" class="form-control" placeholder="Password" id="pwd">
+
+						</div>
+
+						<button type="submit" data-dismiss="modal" class="btn btn-primary" id="loginUser">Login</button>
+
+							<h6>Don't have account? Please <a data-toggle="modal" data-target="#signup" data-dismiss="modal" href="#"> register here </a></h6>
+							<h6> <a data-toggle="modal" data-target="#forgotPassword" data-dismiss="modal" href="#"> Forgot password? </a></h6>
+
+					</form>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="modal fade" id="forgotPassword">
+
+		<div class="modal-dialog">
+
+			<div class="modal-content">
+
+
+				<div class="modal-header">
+
+					<h4 class="modal-title">Forgot Password</h4>
+
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+
+				</div>
+
+
+				<div class="modal-body">
+
+					<form>
+
+						<div class="form-group">
+
+							<label for="email">Email address:</label>
+
+							<input type="email" class="form-control" placeholder="Email" id="email">
+
+						</div>
+
+
+						<button type="submit" data-dismiss="modal" class="btn btn-primary" id="sendEmail">Send</button>
+
+							
+
+					</form>
+
+				</div>
 
 			</div>
 
@@ -642,4 +724,11 @@
 
 </body>
 
+<script src="../js/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<script src="../js/bootstrap.min.js"></script>
+
+<script src="../js/script.js"></script>
 </html>

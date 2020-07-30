@@ -82,7 +82,7 @@
 
   a:hover {
 
-    color:  #ffffff;
+    /*color:  #ffffff;*/
 
     text-decoration: underline;
 
@@ -133,4 +133,7 @@
 .fa-twitter {
   background: #55ACEE;
   color: white;
+}
+.errorField, .passwordErrorField{
+  color: red;
 }

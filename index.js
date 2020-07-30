@@ -11,7 +11,7 @@ app.use(users)
 app.use(express.static('./public'));
 
 app.get('/', (request, response) => {
-  response.end()
+  response.end();
 })
 
 app.listen(3333, () => {
