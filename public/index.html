@@ -78,15 +78,49 @@
 
 	</nav>
 
-	<div class="jumbotron text-center remove-margin banner text-white">
+		<div class="slider-container">
+		  <div class="mySlides">
+		    <div class="numbertext">1 / 6</div>
+		    <img src="./images/banner.jpg" height="500" style="width:100%">
+		  </div>
 
-		<p>All progress takes place outside the comfort zone</p> 
+		  <div class="mySlides">
+		    <div class="numbertext">2 / 6</div>
+		    <img src="./images/bodybuilder1.jpg" height="500" style="width:100%">
+		  </div>
 
-		<h1>BEST GYM IN THE WORLD</h1>
+		  <div class="mySlides">
+		    <div class="numbertext">3 / 6</div>
+		    <img src="./images/bodybuilder2.jpg" height="500" style="width:100%">
+		  </div>
+		    
+		  <div class="mySlides">
+		    <div class="numbertext">4 / 6</div>
+		    <img src="./images/bodybuilder3.jpg" height="500" style="width:100%">
+		  </div>
 
-		<button type="button" class="btn btn-primary mt-3">Learn More</button>
+		  <a class="prev" onclick="plusSlides(-1)">❮</a>
+		  <a class="next" onclick="plusSlides(1)">❯</a>
 
-	</div>
+		  <div class="caption-container">
+		    <p id="caption"></p>
+		  </div>
+
+		  <div class="row ">
+		    <div class="column slider_small_image">
+		      <img class="demo cursor" height="100" src="./images/banner.jpg" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+		    </div>
+		    <div class="column slider_small_image">
+		      <img class="demo cursor" height="100" src="./images/bodybuilder1.jpg" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
+		    </div>
+		    <div class="column slider_small_image">
+		      <img class="demo cursor" height="100" src="./images/bodybuilder2.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+		    </div>
+		    <div class="column slider_small_image">
+		      <img class="demo cursor" height="100" src="./images/bodybuilder3.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+		    </div>
+		  </div>
+		</div>
 
 	<div class="container-fluid">
 
@@ -104,19 +138,13 @@
 
 			<div id="aboutus" class="col-xs-12 col-sm-12 col-md-6">
 
-				<h2>ABOUT US</h2>
+				<h2 class="about_us_title"></h2>
 
 				<br>
+				<div class="about_us_content">
+				</div>
 
-				<p>Push your fitness further with our mix of facilities and we'll support you with advice on new and better ways to train. Involve your whole body by challenging your cardiovascular, muscular and neural systems at the same time
-
-				</p>
-
-				<p>Fitness First feature progressive programs with world class fitness equipment, trainers and nutrition counselors to help you your fitness further. We have the widest range of group fitness classes such Yoga, Aerobics, Zumba, Les Mills favorites & much more. Come into any of your club and see how our range of group exercise classes can take your fitness further. Why not sample yoga, spinning or circuit training.
-
-				</p>
-
-				<button type="button" class="btn btn-outline-primary">Let us Begin</button>
+				<button type="button" href="#trainers" class="btn btn-outline-primary"> <a href="#trainers" style="text-decoration: none; color: white;">Let us Begin</a></button>
 
 				<br>
 
@@ -140,55 +168,9 @@
 
 			<div class="col-12 my-5" >
 
-				<div class="card-deck px-5">
+				<div class="card-deck px-5 trainer_container">
 
-					<div class="card">
-
-						<img src="./images/bodybuilder-646482_1280.jpg" class="card-img-top" alt="Image">
-
-						<div class="card-body">
-
-							<p class="card-text text-center">Are you looking for a weekly workout that will leave you feeling satisfied in 30 minutes or less?! Do you want to feel stronger and loose inches off your waist?
-								If so, here is a great body weight workout to perform in the comfort of your own yard!
-							Tag me Harris in your next backyard workout.</p>
-
-							<p class="card-text text-center"></p>
-
-						</div>
-
-					</div>
-
-					<div class="card">
-
-						<img src="./images/DSC9653Harder.jpg" class="card-img-top" alt="Image">
-
-						<div class="card-body">
-
-							<p class="card-text text-center">Are you looking for a weekly workout that will leave you feeling satisfied in 30 minutes or less?! Do you want to feel stronger and loose inches off your waist?
-								If so, here is a great body weight workout to perform in the comfort of your own yard!
-							Tag me Krishan in your next backyard workout..</p>
-
-							<p class="card-text text-center"></p>
-
-						</div>
-
-					</div>
-
-					<div class="card">
-
-						<img src="./images/personal-trainer-arms-crossed-gym-600w-524848849.jpg" class="card-img-top" alt="Image">
-
-						<div class="card-body">
-
-							<p class="card-text text-center">Are you looking for a weekly workout that will leave you feeling satisfied in 30 minutes or less?! Do you want to feel stronger and loose inches off your waist?
-								If so, here is a great body weight workout to perform in the comfort of your own yard!
-							Tag me Berry in your next backyard workout.</p>
-
-							<p class="card-text text-center"></p>
-
-						</div>
-
-					</div>
+					
 
 				</div>
 
@@ -732,4 +714,5 @@
 <script src="../js/bootstrap.min.js"></script>
 
 <script src="../js/script.js"></script>
+<script src="../js/slider.js"></script>
 </html>

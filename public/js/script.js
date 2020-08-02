@@ -1,9 +1,11 @@
+
 $(document).ready(function(){
-	$(".passwordErrorField").hide();
-	$(".errorField").hide();
-	$(".forgotPasswordErrorField").hide();
-	$(".forgotPasswordMessageField").hide();
-	$(".loginErrorField").hide();
+	
+	initialise();
+	getTrainerDetails();
+   	getAboutUsDetails();
+
+	
 	$(document).find("#submitUser").on("click",function(){
 
 		if($("#firstName").val() == "" || $("#lastName").val() == "" || $("#email").val() == "" || $("#phone").val()=="" || $("#pwd").val() == "" ){
@@ -36,8 +38,6 @@ $(document).ready(function(){
 			        },
 			    });	
 			}
-			
-
 			
 		}
 		
@@ -89,3 +89,60 @@ $(document).ready(function(){
 		
 	});
 });
+
+function initialise(){
+	$(".passwordErrorField").hide();
+	$(".errorField").hide();
+	$(".forgotPasswordErrorField").hide();
+	$(".forgotPasswordMessageField").hide();
+	$(".loginErrorField").hide();
+}
+function getTrainerDetails(){
+	$.ajax({
+        url: 'http://localhost:3333/trainers',
+        type: 'GET',
+        dataType: "json",
+        success: function (data) {
+        	for (i = 0; i < data.length; i++) {
+			  var trainer_content = data[i];
+			  console.log(trainer_content.trainer_details)
+			  var html = "";
+
+			  html = `
+						<div class="card">
+						  	<img src="./images/`+trainer_content.trainer_image+`" class="card-img-top" alt="Image">
+							  	<div class="card-body">
+								<h3 style="text-align:center;">`+trainer_content.trainer_name+`</h3>
+								<p>`+trainer_content.trainer_details+`</p>
+
+								<p class="card-text text-center"></p>
+
+							</div>
+						</div>
+						`;
+						$(".trainer_container").append(html);
+			  
+			}
+        },
+        error: function (xhr, status, error) {
+            console.log('Error: ' + error.message);
+        }
+    });	
+}
+
+function getAboutUsDetails(){
+	$.ajax({
+        url: 'http://localhost:3333/aboutus',
+        type: 'GET',
+        dataType: "json",
+        success: function (data) {
+        	console.log(data);
+        	var aboutus_content = data;
+            $(".about_us_title").append(data[0].title);
+            $(".about_us_content").append(data[0].content);
+        },
+        error: function (xhr, status, error) {
+            console.log('Error: ' + error.message);
+        },
+    });	
+}
