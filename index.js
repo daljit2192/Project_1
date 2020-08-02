@@ -4,6 +4,7 @@ const body_parser = require('body-parser')
 const users = require('./routes/users')
 const trainers = require('./routes/trainer')
 const aboutus = require('./routes/aboutus')
+const banner = require('./routes/banner')
 
 const app = express();
 app.use(morgan('dev'))
@@ -12,6 +13,7 @@ app.use(body_parser.urlencoded({extended: false}))
 app.use(users)
 app.use(trainers)
 app.use(aboutus)
+app.use(banner)
 app.use(express.static('./public'));
 
 app.get('/', (request, response) => {

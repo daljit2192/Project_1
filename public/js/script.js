@@ -4,6 +4,7 @@ $(document).ready(function(){
 	initialise();
 	getTrainerDetails();
    	getAboutUsDetails();
+   	getBannerImages();
 
 	
 	$(document).find("#submitUser").on("click",function(){
@@ -140,6 +141,34 @@ function getAboutUsDetails(){
         	var aboutus_content = data;
             $(".about_us_title").append(data[0].title);
             $(".about_us_content").append(data[0].content);
+        },
+        error: function (xhr, status, error) {
+            console.log('Error: ' + error.message);
+        },
+    });	
+}
+
+function getBannerImages(){
+	$.ajax({
+        url: 'http://localhost:3333/banners',
+        type: 'GET',
+        dataType: "json",
+        success: function (data) {
+			var j = 1;
+        	for (i = 0; i < data.length; i++) {
+			  	var banner_content = data[i];
+			  	j=j++;
+			  	var html = "";
+			  	html = `
+			  		<div class="mySlides">
+		    			<div class="numbertext">`+j+` / `+data.length+`</div>
+		    			<img src="./images/`+banner_content.banner_image+`" height="500" style="width:100%">
+		  			</div>
+				`;
+				$( html ).insertBefore( ".prevButton" );
+			}
+			showSlides(1);
+
         },
         error: function (xhr, status, error) {
             console.log('Error: ' + error.message);
