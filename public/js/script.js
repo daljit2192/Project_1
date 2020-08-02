@@ -5,8 +5,7 @@ $(document).ready(function(){
 	getTrainerDetails();
    	getAboutUsDetails();
    	getBannerImages();
-
-	
+   	getTestimonials();
 	$(document).find("#submitUser").on("click",function(){
 
 		if($("#firstName").val() == "" || $("#lastName").val() == "" || $("#email").val() == "" || $("#phone").val()=="" || $("#pwd").val() == "" ){
@@ -106,7 +105,6 @@ function getTrainerDetails(){
         success: function (data) {
         	for (i = 0; i < data.length; i++) {
 			  var trainer_content = data[i];
-			  console.log(trainer_content.trainer_details)
 			  var html = "";
 
 			  html = `
@@ -137,10 +135,23 @@ function getAboutUsDetails(){
         type: 'GET',
         dataType: "json",
         success: function (data) {
-        	console.log(data);
         	var aboutus_content = data;
             $(".about_us_title").append(data[0].title);
             $(".about_us_content").append(data[0].content);
+        },
+        error: function (xhr, status, error) {
+            console.log('Error: ' + error.message);
+        },
+    });	
+}
+
+function getTestimonials(){
+	$.ajax({
+        url: 'http://localhost:3333/testimonials',
+        type: 'GET',
+        dataType: "json",
+        success: function (data) {
+        	
         },
         error: function (xhr, status, error) {
             console.log('Error: ' + error.message);
@@ -157,15 +168,23 @@ function getBannerImages(){
 			var j = 1;
         	for (i = 0; i < data.length; i++) {
 			  	var banner_content = data[i];
-			  	j=j++;
+			  	
 			  	var html = "";
+			  	var thumbnailhtml = "";
 			  	html = `
 			  		<div class="mySlides">
 		    			<div class="numbertext">`+j+` / `+data.length+`</div>
 		    			<img src="./images/`+banner_content.banner_image+`" height="500" style="width:100%">
 		  			</div>
 				`;
+				thumbnailhtml = `
+			  		<div class="column slider_small_image">
+			  			<img class="demo cursor" height="100" src="./images/`+banner_content.banner_image+`" style="width:100%" onclick="currentSlide(`+j+`)" alt="Northern Lights">
+		  			</div>
+				`;
 				$( html ).insertBefore( ".prevButton" );
+				$(".thumbnail_container").append(thumbnailhtml);
+				j=j+1;
 			}
 			showSlides(1);
 
