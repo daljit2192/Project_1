@@ -10,6 +10,7 @@ const pool = mysql.createPool({
   user: 'root',
   password: 'password',
   database: 'kingsgym_db',
+  insecureAuth : true
 });
   
 function getNewConnection(){
@@ -45,6 +46,23 @@ router.post('/user', (request, response) => {
   })
 });
 
+router.post('/user/login', (request, response) => {
+  const connection = getNewConnection();
+  const user = request.body
+  const queryString = 'select * from kingsgym_db.users where email="'+user.email+'" and password = "'+user.password+'"';
+  connection.query(queryString, (err, rows, fields) => {
+    if (err != null) {
+      console.error(err);
+      response.sendStatus(500);
+    } else {
+      if(rows.length>0){
+        response.send({status:true, message:"login successfully", data:rows[0]});
+      } else{
+        response.send({status:false, message:"No user found, please signup.",});
+      }
+    }
+  });
+});
 
 
 
