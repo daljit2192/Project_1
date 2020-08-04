@@ -6,6 +6,8 @@ const trainers = require('./routes/trainer')
 const aboutus = require('./routes/aboutus')
 const banner = require('./routes/banner')
 const testimonial = require('./routes/testimonials')
+const pricing = require('./routes/pricing');
+const blog = require('./routes/blog');
 
 const app = express();
 app.use(morgan('dev'))
@@ -16,6 +18,8 @@ app.use(trainers)
 app.use(aboutus)
 app.use(banner)
 app.use(testimonial)
+app.use(pricing)
+app.use(blog)
 app.use(express.static('./public'));
 
 app.get('/', (request, response) => {

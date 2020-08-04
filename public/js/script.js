@@ -5,7 +5,9 @@ $(document).ready(function(){
 	getTrainerDetails();
    	getAboutUsDetails();
    	getBannerImages();
-   	getTestimonials();
+	getTestimonials();
+	getPricing();
+	getBlog();
 	$(document).find("#submitUser").on("click",function(){
 
 		if($("#firstName").val() == "" || $("#lastName").val() == "" || $("#email").val() == "" || $("#phone").val()=="" || $("#pwd").val() == "" ){
@@ -151,7 +153,16 @@ function getTestimonials(){
         type: 'GET',
         dataType: "json",
         success: function (data) {
-        	
+        	console.log()
+        	for (i = 0; i < data.length; i++) {
+			  	var testimonial_content = data[i];
+        		var html = "";
+        		html = `
+			  		<p1>`+testimonial_content.content+`</p1>
+					<h6 class="my-5">`+testimonial_content.writer+`</h6>
+				`;
+				$(".testimonial_content").append(html);
+			}
         },
         error: function (xhr, status, error) {
             console.log('Error: ' + error.message);
@@ -193,4 +204,65 @@ function getBannerImages(){
             console.log('Error: ' + error.message);
         },
     });	
+}
+
+function getPricing() {
+	$.ajax({
+        url: 'http://localhost:3333/pricing',
+        type: 'GET',
+        dataType: "json",
+        success: function (data) {
+			$.each(data, function (i) {
+				// var templateString = '<article class="card"><h2>' + response[i].idpricing + '</h2><p>' + response[i].title + '</p><p>' + response[i].price + '</p><button id="tes">Start</button></article>';
+			const stringArr = data[i].description.split(',');
+			var templateString = `<div class="card-body"> <h4> ${data[i].title}</h4> <br> <p>$${data[i].price}</p> <br> <ul class="list-unstyled"> <li>${stringArr[0]}</li> <li>${stringArr[1]}</li> <li>${stringArr[2]}</li> <li>${stringArr[3]}</li> </ul> </div>`
+			$(`#pricingCard${i+1}`).append(templateString);
+			});
+        },
+        error: function (xhr, status, error) {
+            console.log('Error: ' + error.message);
+        },
+    });	
+}
+
+function getBlog() {
+	$.ajax({
+        url: 'http://localhost:3333/blogs',
+        type: 'GET',
+        dataType: "json",
+        success: function (response) {
+        	$.each(response, function (i) {
+				const date = new Date(response[i].createdDate).toDateString();
+				var templateString = `
+				<div class="card-body text-center">
+					<span class="date-formate"> ${date} </span>
+				<h5 id="blog-title">
+				${response[i].title}
+				</h5>
+				<p class="card-text">
+					${response[i].description}
+				</p>
+	
+				<content${i} style="display:none">
+					${response[i].content}
+				</content${i}>
+				
+				</div>`;
+				$(`#blogcontent${i+1}`).append(templateString);
+			})
+        },
+        error: function (xhr, status, error) {
+            console.log('Error: ' + error.message);
+        },
+    });		
+}
+
+function clickOnContent(thisData, i) {
+	const data = thisData;
+	const titleDate = data.outerText.split('\n');
+	const contentData = $(`content${i}`).text().trim(' ');
+	$(`#blog-modal-body`).text('');
+	$(`#blog-modal-body`).append(contentData);
+	$(`#blog-modal-title`).text('');
+	$(`#blog-modal-title`).append(titleDate[1]);
 }

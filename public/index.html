@@ -22,7 +22,7 @@
 
 
 
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	<nav class="navbar sticky-top navbar-expand-sm bg-dark navbar-dark">
 
 		<a class="navbar-brand" href="#">Kings Gym</a>
 
@@ -170,35 +170,19 @@
 
 			</div>
 
+			
+
 			<div class="col-12 mt-5 justify-center">
 
 				<div class="card-columns d-flex">
 
 					<div class="card bg-primary mr-5">
-
-						<div class="card-body text-center">
-
-							<h5>Body Fitness / July 2, 2016</h5>
-
-							<p class="card-text">
-								How to get a fitness model body?
-							by David Walker</p>
-
-						</div>
-
+						<!-- data-toggle="modal" data-target="#signup"  -->
+						<div id="blogcontent1" data-toggle="modal" data-target="#exampleModal" onclick="clickOnContent(this, 0)"></div>
 					</div>
 
 					<div class="card bg-light">
-
-						<div class="card-body text-center">
-
-							<h5>Healthy Fit / June 8, 2016</h5>
-
-							<p class="card-text">Personal Fitness Tips 
-							by George</p>
-
-						</div>
-
+						<div id="blogcontent2" data-toggle="modal" data-target="#exampleModal" onclick="clickOnContent(this, 1)"></div>
 					</div>
 
 				</div>
@@ -210,35 +194,16 @@
 				<div class="card-columns d-flex">
 
 					<div class="card bg-light mr-5">
-
-						<div class="card-body text-center">
-
-							<h5>Gym Services / May 9, 2016</h5>
-
-							<p class="card-text">Efficient Workout Plans 
-							by Mary Louis</p>
-
-						</div>
-
+						<div id="blogcontent3" data-toggle="modal" data-target="#exampleModal" onclick="clickOnContent(this, 2)"></div>
 					</div>
 
 					<div class="card bg-info">
-
-						<div class="card-body text-center">
-
-							<h5>Practice Aerobics / April 18, 2016</h5>
-
-							<p class="card-text">How to practice Aerobics? 
-							by Michael Fit</p>
-
-						</div>
-
+						<div id="blogcontent4" data-toggle="modal" data-target="#exampleModal" onclick="clickOnContent(this, 3)"></div>
 					</div>
 
 				</div>
 
 			</div>
-
 		</div>
 
 		<div class="row p-5"  style="background: lightblue;">
@@ -259,89 +224,11 @@
 
 				<div class="card-deck px-5">
 
-					<div class="card">
+					<div id="pricingCard1" class="card"> </div>
+					<div id="pricingCard2" class="card"> </div>
+					<div id="pricingCard3" class="card"> </div>
 
-						<div class="card-body">
-
-							<h4>Basic Plan</h4>
-
-							<br>
-
-							<p>$5</p>
-
-							<br>
-
-							<ul class="list-unstyled">
-
-								<li>Free WiFi*</li>
-
-								<li>Use of Any Planet Fitness Worldwide</li>
-
-								<li>Free Fitness Training</li>
-
-								<li>Dance Clases</li>
-
-							</ul>
-
-						</div>
-
-					</div>
-
-					<div class="card">
-
-						<div class="card-body">
-
-							<h4>Gold</h4>
-
-							<br>
-
-							<p>$10</p>
-
-							<br>
-
-							<ul class="list-unstyled">
-
-								<li>All basic features</li>
-
-								<li>Use of Tanning</li>
-
-								<li>Use of HydroMassage</li>
-
-								<li>50% Off Drinks</li>
-
-							</ul>
-
-						</div>
-
-					</div>
-
-					<div class="card">
-
-						<div class="card-body">
-
-							<h4>Daimond</h4>
-
-							<br>
-
-							<p>$20</p>
-
-							<br>
-
-							<ul class="list-unstyled">
-
-								<li>All basic and gold features </li>
-
-								<li>Use of Total Body Enhancement</li>
-
-								<li>20% off Reebok products</li>
-
-								<li>Use of Massage Chairs</li>
-
-							</ul>
-
-						</div>
-
-					</div>
+					
 
 				</div>
 
@@ -354,18 +241,9 @@
 			<div class="col-12 text-center">
 
 				<h2 class="text-center mb-5">TESTIMONIALS</h2>
-
-				<p1>Things may come to those who wait, but only the things left by those who hustle.</p1>
-
-				<br>
-
-				<p1>Well done is better than well said.</p1>
-
-				<br>
-
-				<p1>A champion is someone who gets up when they can’t</p1>
-
-				<h6 class="my-5">LINNIE HENDERSON</h6>
+				<div class="testimonial_content">
+					
+				</div>
 
 			</div>
 
@@ -640,6 +518,25 @@
 		</div>
 
 	</div>
+
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="blog-modal-title"></h5>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div id="blog-modal-body" class="modal-body">
+			</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  
 
 </body>
 

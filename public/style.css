@@ -223,3 +223,11 @@
   .column.slider_small_image {
     width: 140px;
 }
+}
+
+.date-formate {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+  margin-top: -12px;
+}
